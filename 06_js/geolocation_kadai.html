@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>infobox show[one/Multiple]</title>
+<style>html,body{height:100%;}body{padding:0;margin:0;}h1{padding:0;margin:0;font-size:100%;}</style>
+</head>
+<body>
+    
+    
+<!-- MAP[START] -->
+<h1>私のグルメMAP</h1>
+<div id="myMap" style='width:100%;height:97%;'></div>
+<!-- <div id="view"></div>
+<div id="myMap" style="width:50%;height:50%;"></div> -->
+<!-- MAP[END] -->
+
+
+<script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Au1IikZ3RYLDRm_xiBoXFh031T1Ivu0nAiVjHqHAti_Je9LFNsyzYIMocEZFnFDh' async defer></script>
+<script src="js/BmapQuery.js"></script>
+<script>
+//****************************************************************************************
+// BingMaps&BmapQuery
+//****************************************************************************************
+//Init
+function GetMap(){
+
+    //------------------------------------------------------------------------
+    //1. Instance
+    //------------------------------------------------------------------------
+    const map = new Bmap("#myMap");
+
+    //------------------------------------------------------------------------
+    //2. Display Map
+    //------------------------------------------------------------------------
+    map.startMap(35.80, 139.72, "load", 11);
+ 
+    //----------------------------------------------------
+    //3. Infobox
+    //   options = new Array();
+    //   options[index] = { lat, lon, width, height, title, pinColor, description };
+    //----------------------------------------------------
+    const options = [];
+    options[0]={
+        "lat":35.7991306,
+        "lon":139.5959406,
+        "title":"中華蕎麦　瑞山",
+        "pinColor":"#ff0000",
+        "height":300,
+        "width":320,
+        "description": '【おススメ】特製塩そば<br><img src="img/zuizan.jpg" width="300">',
+        "show":false
+    };
+    options[1]={
+        "lat":35.67126289999999,
+        "lon":139.7613911,
+        "title":"銀座　篝",
+        "pinColor":"#ff0000",
+        "height":300,
+        "width":320,
+        "description": '【おススメ】鶏白湯soba<br>お昼時はいつも行列！外国の方にも人気のお店<br><img src="img/kagari.jpg" width="300">',
+        "show":false
+    };
+    options[2]={
+        "lat":35.7079995,
+        "lon":139.6665834,
+        "title":"麺匠　ようすけ",
+        "pinColor":"#ff0000",
+        "height":300,
+        "width":320,
+        "description": '【おススメ】濃厚白湯らーめん<br>黒ようすけもおいしかったが閉店><<br><img src="img/yousuke.jpg" width="300">',
+        "show":false
+    };
+    options[3]={
+        "lat":35.6674083,
+        "lon":139.7088377,
+        "title":"GOLDEN BROWN OMOTESANDO",
+        "pinColor":"#fd7e00",
+        "height":300,
+        "width":320,
+        "description": 'ボリューミー！<br><img src="img/goldenbrown.jpg" width="300">',
+        "show":false
+    };
+    options[4]={
+        "lat":35.6798647,
+        "lon":139.706436,
+        "title":"E・A・T Grill&Bar",
+        "pinColor":"#fd7e00",
+        "height":300,
+        "width":320,
+        "description": '店内にかわいい柴犬がいます♪<br><img src="img/eat.jpg" width="300">',
+        "show":false
+    };
+    options[5]={
+        "lat":35.6871749,
+        "lon":139.785064,
+        "title":"BROZERS' グルメバーガー専門店",
+        "pinColor":"#fd7e00",
+        "height":300,
+        "width":320,
+        "description": '<br><img src="img/brozers.jpg" width="300">',
+        "show":false
+    };
+
+    //----------------------------------------------------
+    //4. Switch infoboxs
+    //   infoboxLayers(options, true); //true=one, false=Multiple
+    //----------------------------------------------------
+    map.infoboxLayers(options,true);
+
+}
+</script>
+
+</body>
+</html>
